@@ -602,15 +602,37 @@ h4 {
     body { font-size: 1.2rem; }
 
     .main-nav {
-        padding: 1rem 1.5rem;
+        display: none; /* Hide the top bar entirely on mobile */
     }
 
-    .main-nav.scrolled {
-        padding: 0.8rem 1.5rem;
-    }
-
+    /* Floating 3-dot Button */
     .hamburger {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 0, 85, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--neon-magenta);
+        border-radius: 50%;
+        z-index: 10001;
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+    }
+
+    .hamburger span {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--neon-magenta);
+        margin: 0;
+        transition: 0.3s;
     }
 
     .nav-links {
@@ -633,8 +655,12 @@ h4 {
         right: 0;
     }
 
+    /* Animation for 3 dots to X */
     .menu-toggle:checked ~ .hamburger span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: scale(3) rotate(45deg);
+        width: 12px;
+        height: 2px;
+        border-radius: 0;
     }
 
     .menu-toggle:checked ~ .hamburger span:nth-child(2) {
@@ -642,7 +668,10 @@ h4 {
     }
 
     .menu-toggle:checked ~ .hamburger span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: scale(3) rotate(-45deg) translate(0px, -1px);
+        width: 12px;
+        height: 2px;
+        border-radius: 0;
     }
 
     .nav-links a {
@@ -716,10 +745,11 @@ h4 {
     }
 
     .glitch-text {
-        font-size: clamp(1.5rem, 12vw, 2.8rem);
+        font-size: clamp(1.4rem, 10vw, 2.5rem);
         letter-spacing: -2px;
         width: 100%;
         text-align: center;
+        margin: 0;
     }
 
     .subtitle {
