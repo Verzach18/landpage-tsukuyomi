@@ -613,35 +613,38 @@ h4 {
         display: none !important;
     }
 
-    /* Floating 3-dot Button - ALWAYS VISIBLE */
+    /* Floating 3-dot Button - ULTRA VISIBLE */
     .hamburger {
         display: flex !important;
-        pointer-events: auto; /* Re-enable clicks for the button */
+        pointer-events: auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        background: rgba(255, 0, 85, 0.15);
+        top: 25px;
+        right: 25px;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 0, 85, 0.3); /* More opaque */
         backdrop-filter: blur(10px);
-        border: 1px solid var(--neon-magenta);
+        border: 2px solid var(--neon-magenta); /* Thicker border */
         border-radius: 50%;
-        z-index: 100000;
+        z-index: 1000000; /* Max priority */
         cursor: pointer;
-        box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 85, 0.5), inset 0 0 10px rgba(255, 0, 85, 0.3);
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
     .hamburger span {
-        width: 4px;
-        height: 4px;
+        width: 6px; /* Bigger dots */
+        height: 6px;
         border-radius: 50%;
-        background: var(--neon-magenta);
+        background: var(--text-white); /* White dots for contrast */
         margin: 0;
         transition: 0.3s;
+        box-shadow: 0 0 5px var(--neon-magenta);
     }
 
     .nav-links {
