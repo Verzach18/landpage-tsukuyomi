@@ -101,10 +101,17 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
+    background: transparent; /* Initially transparent */
+    backdrop-filter: blur(0px);
+    border-bottom: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-nav.scrolled {
     background: rgba(3, 3, 3, 0.85);
     backdrop-filter: blur(15px);
     border-bottom: 2px solid var(--deep-purple);
-    transition: 0.3s ease;
+    padding: 1rem 4rem;
 }
 
 .menu-toggle {
@@ -595,8 +602,11 @@ h4 {
     body { font-size: 1.2rem; }
 
     .main-nav {
-        padding: 1rem 2rem;
-        background: rgba(3, 3, 3, 0.95);
+        padding: 1rem 1.5rem;
+    }
+
+    .main-nav.scrolled {
+        padding: 0.8rem 1.5rem;
     }
 
     .hamburger {
@@ -645,12 +655,15 @@ h4 {
     .hero-full {
         height: auto;
         min-height: 100vh;
-        padding: 8rem 1rem 4rem 1rem;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .glitch-text {
-        font-size: clamp(2rem, 12vw, 3.5rem);
-        margin-top: 1rem;
+        font-size: clamp(1.8rem, 10vw, 3rem);
+        margin-top: 0; /* Centered by flex container */
     }
 
     .lore-grid,
@@ -703,14 +716,19 @@ h4 {
     }
 
     .glitch-text {
-        font-size: clamp(1.8rem, 15vw, 3rem);
-        letter-spacing: -1px;
+        font-size: clamp(1.5rem, 12vw, 2.8rem);
+        letter-spacing: -2px;
+        width: 100%;
+        text-align: center;
     }
 
     .subtitle {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
         margin-bottom: 2rem;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .pixel-btn {

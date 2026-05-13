@@ -60,6 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Navbar scroll effect
+    const mainNav = document.querySelector('.main-nav');
+    if (mainNav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
+    }
+
     // Hover effect for photo placeholders
     document.querySelectorAll('.photo-placeholder').forEach(photo => {
         photo.addEventListener('mouseover', () => {
