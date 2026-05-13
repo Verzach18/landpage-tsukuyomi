@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
+            
+            // Close mobile menu if open
+            const menuToggle = document.getElementById('menu-toggle');
+            if (menuToggle) menuToggle.checked = false;
+
             if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
@@ -33,6 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     block: 'start'
                 });
             }
+        });
+    });
+
+    // Close mobile menu on external link clicks too
+    document.querySelectorAll('.nav-external').forEach(link => {
+        link.addEventListener('click', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            if (menuToggle) menuToggle.checked = false;
         });
     });
 
